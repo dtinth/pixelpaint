@@ -7,12 +7,14 @@ const MobXCanvas = require('bundle?lazy&name=MobXCanvas!./MobXCanvas')
 const ReduxCanvas = require('bundle?lazy&name=ReduxCanvas!./ReduxCanvas')
 const ReduxCanvasV2 = require('bundle?lazy&name=ReduxCanvasV2!./ReduxCanvasV2')
 const ReduxCanvasV3 = require('bundle?lazy&name=ReduxCanvasV3!./ReduxCanvasV3')
+const ReduxCanvasV4 = require('bundle?lazy&name=ReduxCanvasV4!./ReduxCanvasV4')
 
 const availableExperiments = {
   MobXCanvas,
   ReduxCanvas,
   ReduxCanvasV2,
-  ReduxCanvasV3
+  ReduxCanvasV3,
+  ReduxCanvasV4
 }
 
 class App extends Component {
