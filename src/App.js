@@ -1,23 +1,60 @@
 import './App.css'
 
-import DevTool, { configureDevtool } from 'mobx-react-devtools'
 import React, { Component } from 'react'
 
-import MobXCanvas from './MobXCanvas'
-import ReduxCanvas from './ReduxCanvas'
-import ReduxCanvasV2 from './ReduxCanvasV2'
-import ReduxCanvasV3 from './ReduxCanvasV3'
+/* eslint import/no-webpack-loader-syntax: off */
+const MobXCanvas = require('bundle?lazy&name=MobXCanvas!./MobXCanvas')
+const ReduxCanvas = require('bundle?lazy&name=ReduxCanvas!./ReduxCanvas')
+const ReduxCanvasV2 = require('bundle?lazy&name=ReduxCanvasV2!./ReduxCanvasV2')
+const ReduxCanvasV3 = require('bundle?lazy&name=ReduxCanvasV3!./ReduxCanvasV3')
 
-const availableExperiments = { MobXCanvas, ReduxCanvas, ReduxCanvasV2, ReduxCanvasV3 }
-
-configureDevtool({ updatesEnabled: false })
+const availableExperiments = {
+  MobXCanvas,
+  ReduxCanvas,
+  ReduxCanvasV2,
+  ReduxCanvasV3
+}
 
 class App extends Component {
   renderContent () {
-    const Canvas = availableExperiments[this.props.experiment]
-    if (!Canvas) {
+    const experiment = availableExperiments[this.props.experiment]
+    if (!experiment) {
       return <ChooseAnExperiment />
     }
+    return <ExperimentContainer experiment={experiment} />
+  }
+  render () {
+    return <div className='App'>
+      <div className='App-header'>
+        <h2>Pixel Paint</h2>
+      </div>
+      {this.renderContent()}
+    </div>
+  }
+}
+
+class ExperimentContainer extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { Canvas: null, devTool: null }
+  }
+  componentDidMount () {
+    this.props.experiment((experimentModule) => {
+      this.setState({
+        Canvas: experimentModule.default,
+        devTool: experimentModule.renderDevTool &&
+          experimentModule.renderDevTool() ||
+          null
+      })
+    })
+  }
+  render () {
+    if (!this.state.Canvas) {
+      return <div style={{ marginTop: 48, fontSize: 32 }}>
+        (loading experiment)
+      </div>
+    }
+    const { Canvas } = this.state
     return <div>
       <div className='App-canvasContainer'>
         <div className='App-canvas'>
@@ -29,15 +66,7 @@ class App extends Component {
           <Canvas />
         </div>
       </div>
-      <DevTool />
-    </div>
-  }
-  render () {
-    return <div className='App'>
-      <div className='App-header'>
-        <h2>Pixel Paint</h2>
-      </div>
-      {this.renderContent()}
+      {this.state.devTool}
     </div>
   }
 }

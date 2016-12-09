@@ -1,8 +1,11 @@
 import React from 'react'
+import DevTool, { configureDevtool } from 'mobx-react-devtools'
 import { observable, asMap, action } from 'mobx'
 import { observer } from 'mobx-react'
 
 import Pixel from './Pixel'
+
+configureDevtool({ updatesEnabled: false })
 
 const store = observable({
   pixels: asMap({ }),
@@ -34,3 +37,5 @@ const PixelContainer = observer(function PixelContainer ({ i, j }) {
 })
 
 export default MobXCanvas
+
+export const renderDevTool = () => <DevTool />
