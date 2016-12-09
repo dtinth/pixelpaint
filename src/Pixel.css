@@ -1,0 +1,11 @@
+
+.Pixel {
+  position: absolute;
+  background: #eee;
+  width: 3px;
+  height: 3px;
+}
+
+.Pixel[data-active='1'] {
+  background: #333;
+}

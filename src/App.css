@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-canvasContainer {
+  border: 5px solid #789;
+  display: inline-block;
+  margin: 20px 10px 0;
+}
+
+.App-canvas {
+  width: 384px;
+  height: 384px;
+  position: relative;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
