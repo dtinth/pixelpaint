@@ -1,6 +1,14 @@
 {
-  "main.css": "static/css/main.c99a6ec1.css",
-  "main.css.map": "static/css/main.c99a6ec1.css.map",
-  "main.js": "static/js/main.1b19f42b.js",
-  "main.js.map": "static/js/main.1b19f42b.js.map"
+  "MobXCanvas.js": "static/js/MobXCanvas.d726b626.chunk.js",
+  "MobXCanvas.js.map": "static/js/MobXCanvas.d726b626.chunk.js.map",
+  "ReduxCanvas.js": "static/js/ReduxCanvas.30c3195f.chunk.js",
+  "ReduxCanvas.js.map": "static/js/ReduxCanvas.30c3195f.chunk.js.map",
+  "ReduxCanvasV2.js": "static/js/ReduxCanvasV2.0abf1d3f.chunk.js",
+  "ReduxCanvasV2.js.map": "static/js/ReduxCanvasV2.0abf1d3f.chunk.js.map",
+  "ReduxCanvasV3.js": "static/js/ReduxCanvasV3.8790b439.chunk.js",
+  "ReduxCanvasV3.js.map": "static/js/ReduxCanvasV3.8790b439.chunk.js.map",
+  "main.css": "static/css/main.ffdaab2a.css",
+  "main.css.map": "static/css/main.ffdaab2a.css.map",
+  "main.js": "static/js/main.28cd03b7.js",
+  "main.js.map": "static/js/main.28cd03b7.js.map"
 }
